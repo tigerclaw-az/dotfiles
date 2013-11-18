@@ -1,0 +1,16 @@
+[color]
+	ui = true
+	diff = true
+[user]
+	name = Erik Waibel
+	email = ewaibel@itracs.com
+[push]
+	default = current
+[merge]
+	tool = meld
+[mergetool]
+	keepBackup = false
+[branch]
+	autosetupmerge = true
+[url "https://"]
+	insteadOf = git://

@@ -1,0 +1,30 @@
+{
+	"browser": true,
+	"curly": false,
+	"dojo": true,
+	"eqeqeq": true,
+	"eqnull": false,
+	"evil": false,
+	"immed": true,
+	"indent": 4,
+	"jquery": true,
+	"latedef": true,
+	"loopfunc": true,
+	"newcap": false,
+	"node": true,
+	"onecase": true,
+	"quotmark": "single",
+	"smarttabs": true,
+	"strict": false,
+	"trailing": false,
+	"undef": false,
+	"unused": false,
+	"globals": {
+		"jQuery": true,
+		"console": true,
+		"module": true,
+		"document": true
+	},
+	"-W015": true,
+	"-W093": true
+}

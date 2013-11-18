@@ -1,0 +1,6 @@
+"\C-[[A": history-search-backward
+"\C-[[B": history-search-forward
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on

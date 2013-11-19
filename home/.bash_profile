@@ -2,13 +2,6 @@ prefix=$(brew --prefix)
 export BYOBU_PREFIX=$prefix
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
-# proxy
-#export http_proxy="http://localhost:8080"
-#export https_proxy="http://localhost:8080"
-
-#npm set proxy $http_proxy
-#npm set https-proxy $https_proxy
-
 # bash completion
 if [ -f $prefix/etc/bash_completion ]; then
     . $prefix/etc/bash_completion
@@ -22,7 +15,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 alias serve="php -S 127.0.0.1:9000"
 
 # brew & PHP 5.5
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/php5/bin:/usr/local/Cellar/ruby/2.0.0-p247/bin:$PATH
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/php5/bin:$PATH"
+
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # Git
 source /usr/local/git/contrib/completion/git-completion.bash
@@ -82,35 +77,6 @@ GIT_PS1_SHOWUPSTREAM=verbose
 # the colored output of "git status -sb".
 GIT_PS1_SHOWCOLORHINTS=1
 
-export LOLCOMMITS_FORK=true
-
 # prompt
 export PS1="\T \u:\w\n\$(__git_ps1)$ "
-# export PS1="\T \u\n\w \$ "
 
-alias ls="ls -F"
-alias ll="ls -laF"
-alias mamp="cd /Applications/MAMP"
-alias htdocs="cd /Applications/MAMP/htdocs"
-
-# -- Git Shortcuts --
-alias cherry-pick="git cherry-pick -x "
-alias gs="git status "
-alias ga="git add "
-alias gb="git branch "
-alias gc="git commit"
-alias gco="git checkout"
-alias gd="git diff -w -b"
-alias gg="git log --oneline --abbrev-commit --all --graph --decorate --color"
-alias gl="git log"
-alias gm="git merge --no-ff "
-alias gp="git push origin $1"
-alias gru="git remote update"
-alias gk="gitk --all&"
-alias gx="gitx --all"
-alias mkbranch="git checkout -b"
-alias mvbranch="git branch -f "
-alias rmbranch="git branch -D "
-
-# -- Custom aliases --
-alias sublime="/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2"

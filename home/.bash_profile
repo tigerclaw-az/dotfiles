@@ -11,9 +11,6 @@ fi
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# PHP server
-alias serve="php -S 127.0.0.1:9000"
-
 # brew & PHP 5.5
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/php5/bin:$PATH"
 
@@ -80,3 +77,5 @@ GIT_PS1_SHOWCOLORHINTS=1
 # prompt
 export PS1="\T \u:\w\n\$(__git_ps1)$ "
 
+source ~/.aliases
+source ~/.functions

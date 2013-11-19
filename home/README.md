@@ -1,4 +1,0 @@
-dotfiles
-========
-
-User configuration files

@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-read -p "Have you installed homebrew? " -n 1
-echo
-if [[ $REPLY =~ ^[Nn]$ ]]; then
+###############################################################################
+# Homebrew                                                                    #
+###############################################################################
+which -s brew
+if [[ $? != 0 ]]; then
+	echo "Installing Homebrew..."
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	sh bin/.brew
 fi
 
 ###############################################################################

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-read -p "Have you installed homebrew?" -n 1
+read -p "Have you installed homebrew? " -n 1
+echo
 if [[ $REPLY =~ ^[Nn]$ ]]; then
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 fi
@@ -8,7 +9,8 @@ fi
 ###############################################################################
 # Sublime Text                                                                #
 ###############################################################################
-read -p "Do you want to copy Sublime Text settings?" -n 1
+read -p "Do you want to copy Sublime Text settings? " -n 1
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	cp -r dev/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
 fi
@@ -16,7 +18,8 @@ fi
 ###############################################################################
 # OSX Defaults                                                                #
 ###############################################################################
-read -p "Do you want to update OSX defaults?" -n 1
+read -p "Do you want to update OSX defaults? " -n 1
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	cp home/.osx ~
 	source ~/.osx

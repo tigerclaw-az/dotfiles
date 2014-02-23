@@ -1,5 +1,11 @@
-prefix=$(brew --prefix)
-export BYOBU_PREFIX=$prefix
+prefix=''
+
+which brew
+if [[ $? == 0 ]]; then
+	prefix=$(brew --prefix)
+	export BYOBU_PREFIX=$prefix
+fi
+
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 # bash completion
@@ -12,13 +18,18 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # brew & PHP 5.5
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/php5/bin:$PATH"
+if [[ "$prefix" == "" ]]; then
+	export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
+else
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:/usr/local/bin:/usr/local/php5/bin:$PATH"
+	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+fi
 
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-
-# Git
-source /usr/local/git/contrib/completion/git-completion.bash
-source /usr/local/git/contrib/completion/git-prompt.sh
+# Git (OSX)
+if [ -f /usr/local/git ]; then
+	source /usr/local/git/contrib/completion/git-completion.bash
+	source /usr/local/git/contrib/completion/git-prompt.sh
+fi
 
 # If you set GIT_PS1_SHOWDIRTYSTATE to a nonempty value,
 # unstaged (*) and staged (+) changes will be shown next to the branch
@@ -30,7 +41,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 # You can also see if currently something is stashed, by setting
 # GIT_PS1_SHOWSTASHSTATE to a nonempty value. If something is stashed,
 # then a '$' will be shown next to the branch name.
-#GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
 
 # If you would like to see if there're untracked files, then you can set
 # GIT_PS1_SHOWUNTRACKEDFILES to a nonempty value. If there're untracked

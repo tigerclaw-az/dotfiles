@@ -165,4 +165,6 @@ alias mvbranch="git branch -f "
 alias rmbranch="git branch -D "
 
 # Set alias for sublime
-alias subl="/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2"
+if [ -f /usr/bin/subl ]; then
+	alias subl="/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2"
+fi

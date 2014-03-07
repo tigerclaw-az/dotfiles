@@ -147,22 +147,12 @@ alias reload="exec $SHELL -l"
 
 # -- Git Shortcuts --
 alias cherry-pick="git cherry-pick -x "
-alias gs="git status "
 alias ga="git add "
-alias gb="git branch "
-alias gc="git commit"
-alias gco="git checkout"
-alias gd="git diff -w -b"
 alias gg="git log --oneline --abbrev-commit --all --graph --decorate --color"
-alias gl="git log"
-alias gm="git merge --no-ff "
 alias gp="git push origin $1"
 alias gru="git remote update"
 alias gk="gitk --all&"
 alias gx="gitx --all"
-alias mkbranch="git checkout -b"
-alias mvbranch="git branch -f "
-alias rmbranch="git branch -D "
 
 # Set alias for sublime
 if [ -f /usr/bin/subl ]; then

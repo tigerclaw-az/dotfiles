@@ -1,19 +1,41 @@
 [core]
 	autocrlf = false
 [color]
-	ui = true
-	diff = true
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 [user]
 	name = Erik Waibel
-	email = ewaibel@itracs.com
+	email = ejwaibel@gmail.com
+
 [push]
 	default = current
+
 [merge]
 	tool = meld
+
 [mergetool]
 	keepBackup = false
+
 [branch]
 	autosetupmerge = true
+
 [url "https://"]
 	insteadOf = git://
 

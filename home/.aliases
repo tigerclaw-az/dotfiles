@@ -155,6 +155,6 @@ alias gk="gitk --all&"
 alias gx="gitx --all"
 
 # Set alias for sublime
-if [ -f /usr/bin/subl ]; then
+if ! [ -f /usr/bin/subl ]; then
 	alias subl="/Applications/Sublime\ Text\ 2.app/Contents/MacOS/Sublime\ Text\ 2"
 fi

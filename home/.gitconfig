@@ -1,5 +1,6 @@
 [core]
 	autocrlf = false
+	editor = /Applications/Sublime\\ Text\\ 2.app/Contents/SharedSupport/bin/subl --wait
 
 [color]
 	diff = auto
@@ -55,3 +56,4 @@
   	co = checkout
   	df = diff -w -b
   	mg = merge --no-ff
+        mvtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1 && git push --tags; }; f"

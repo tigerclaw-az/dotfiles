@@ -1,0 +1,11 @@
+aptitude
+chromium-browser
+dos2unix
+fluxgui
+git
+git-core
+bash-completion
+nodejs
+php5
+python
+ruby

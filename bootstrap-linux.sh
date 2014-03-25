@@ -46,3 +46,6 @@ cp home/.inputrc ~
 cp home/.gitconfig ~
 
 source ~/.profile
+
+echo -e "Download Sublime Text: http://www.sublimetext.com/3"
+echo -e "Disable update manager: http://ubuntuforums.org/showthread.php?t=1966228\n"

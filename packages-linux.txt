@@ -8,4 +8,6 @@ bash-completion
 nodejs
 php5
 python
+retext
 ruby
+terminator

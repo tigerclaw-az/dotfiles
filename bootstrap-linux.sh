@@ -12,7 +12,6 @@ fi
 packagesFile="packages-linux.txt"
 apt-get update && apt-get upgrade
 read -p "Do you want to install packages [yN]? " -n 1
-echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	filecontent=( `cat $packagesFile `)
 
@@ -31,7 +30,6 @@ fi
 # Macbuntu Theme                                                              #
 ###############################################################################
 read -p "Do you want to install the Macbuntu theme [yN]? " -n 1
-echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	wget https://downloads.sourceforge.net/project/macbuntu/macbuntu-10.10/v2.3/Macbuntu-10.10.tar.gz -O /tmp/Macbuntu-10.10.tar.gz
 	tar xzvf /tmp/Macbuntu-10.10.tar.gz -C /tmp
@@ -40,12 +38,12 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	cd $pwd
 fi
 
-cp home/.bash_profile ~/.profile
-cp home/.functions ~
-cp home/.inputrc ~
-cp home/.gitconfig ~
+ln -s home/.bash_profile ~/.bash_profile
+ln -s home/.functions ~/.functions
+ln -s home/.inputrc ~/.inputrc
+ln -s home/.gitconfig ~/.gitconfig
 
-source ~/.profile
+source ~/.bash_profile
 
 echo -e "Download Sublime Text: http://www.sublimetext.com/3"
 echo -e "Disable update manager: http://ubuntuforums.org/showthread.php?t=1966228\n"

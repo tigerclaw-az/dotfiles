@@ -11,3 +11,5 @@ python
 retext
 ruby
 terminator
+build-essential
+linux-libc-dev

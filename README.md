@@ -17,3 +17,9 @@ Run `bootstrap-osx.sh`
 ## Ubuntu
 
 Run `bootstrap-linux.sh`
+
+## Manual Steps
+
+- Install Google Chrome: http://www.google.com/chrome
+- Download Sublime Text: http://www.sublimetext.com/3
+- Disable update manager: http://ubuntuforums.org/showthread.php?t=1966228

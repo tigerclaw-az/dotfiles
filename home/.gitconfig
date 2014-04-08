@@ -1,6 +1,6 @@
 [core]
 	autocrlf = false
-	editor = /Applications/Sublime\\ Text\\ 2.app/Contents/SharedSupport/bin/subl --wait
+	editor = /usr/bin/subl --wait
 
 [color]
 	diff = auto

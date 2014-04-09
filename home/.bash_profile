@@ -8,11 +8,6 @@ fi
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
-# bash completion
-if [ -f $prefix/etc/bash_completion ]; then
-    . $prefix/etc/bash_completion
-fi
-
 # terminal color
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -21,14 +16,16 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 if [[ "$prefix" == "" ]]; then
 	export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 else
-	export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:/usr/local/bin:/usr/local/php5/bin:$PATH"
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:$(brew --prefix josegonzalez/php/php54)/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
-# Git (OSX)
-if [ -f /usr/local/git ]; then
-	source /usr/local/git/contrib/completion/git-completion.bash
-	source /usr/local/git/contrib/completion/git-prompt.sh
+# bash completion
+if [ -f $prefix/etc/bash_completion ]; then
+    . $prefix/etc/bash_completion
+else
+    source $prefix/etc/bash_completion.d/git-completion.bash
+    source $prefix/etc/bash_completion.d/git-prompt.sh
 fi
 
 # If you set GIT_PS1_SHOWDIRTYSTATE to a nonempty value,

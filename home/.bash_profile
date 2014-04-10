@@ -1,8 +1,7 @@
-prefix=''
+brew=/usr/local/bin/brew
+prefix=$($brew --prefix) 2>&1
 
-which brew
-if [[ $? == 0 ]]; then
-	prefix=$(brew --prefix)
+if [[ "$prefix" != "" ]]; then
 	export BYOBU_PREFIX=$prefix
 fi
 
@@ -16,7 +15,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 if [[ "$prefix" == "" ]]; then
 	export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 else
-	export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:$(brew --prefix josegonzalez/php/php54)/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$($brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$($brew --prefix ruby)/bin:/opt/local/sbin:$($brew --prefix josegonzalez/php/php54)/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 

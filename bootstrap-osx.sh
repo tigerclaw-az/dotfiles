@@ -11,27 +11,20 @@ if [[ $? != 0 ]]; then
 fi
 
 ###############################################################################
-# Sublime Text                                                                #
-###############################################################################
-read -p "Do you want to copy Sublime Text settings? " -n 1
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-	cp -r dev/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
-fi
-
-###############################################################################
 # OSX Defaults                                                                #
 ###############################################################################
 read -p "Do you want to update OSX defaults? " -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	cp home/.osx ~
+	ln -s home/.osx ~/.osx
 	source ~/.osx
 fi
 
-cp home/.bash_profile ~/.profile
-cp home/.functions ~
-cp home/.inputrc ~
-cp home/.gitconfig ~
+ln -s home/.bash_profile ~/.profile
+ln -s home/.functions ~/.functions
+ln -s home/.inputrc ~/.inputrc
+ln -s home/.gitconfig ~/.gitconfig
 
 source ~/.profile
+
+echo -e "Download Sublime Text: http://www.sublimetext.com/3"

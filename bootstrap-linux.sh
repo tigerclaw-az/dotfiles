@@ -9,23 +9,9 @@ fi
 ###############################################################################
 # Install Linux packages                                                     #
 ###############################################################################
-packagesFile="packages-linux.txt"
-echo -e "Performing apt-get update & upgrade..."
-(apt-get update && apt-get upgrade) > /dev/null 2>&1
-filecontent=( `cat $packagesFile `)
-echo -e "\nThe following packages will be installed or upgraded:\n\t\033[33m${filecontent[@]}\033[0m\n"
-read -p "Do you want to install packages?[yN] " -n 1
+read -p "Do you want to perform install/upgrade?[yN] " -n 1
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	for p in "${filecontent[@]}"
-	do
-		apt-get install -y $p
-		if [ $? != 0 ]; then
-			echo -e "\t\033[31mFAIL\033[0m"
-		else
-			echo -e "\t\033[32mSUCCESS\033[0m"
-		fi
-	done
-	echo -e "--> Package installation completed!"
+	sh bin/.packages
 fi
 
 ###############################################################################

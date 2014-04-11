@@ -38,12 +38,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	cd $pwd
 fi
 
-ln -s home/.bash_profile ~/.bash_profile
+ln -s home/.bash_profile.LINUX ~/.bashrc
 ln -s home/.functions ~/.functions
 ln -s home/.inputrc ~/.inputrc
 ln -s home/.gitconfig ~/.gitconfig
+ln -s home/.gitprompt ~/.gitprompt
 
-source ~/.bash_profile
+source ~/.bashrc
 
 echo -e "Download Sublime Text: http://www.sublimetext.com/3"
 echo -e "Disable update manager: http://ubuntuforums.org/showthread.php?t=1966228\n"

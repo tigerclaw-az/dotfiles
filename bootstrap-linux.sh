@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cwd=$(pwd)
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ $(whoami) != "root" ]; then
 	echo "ERROR: This script must be run as root!"
@@ -33,11 +33,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 echo -e "Linking home files..."
-ln -s "$cwd/home/.bash_profile.LINUX" ~/.bashrc
-ln -s "$cwd/home/.functions" ~/.functions
-ln -s "$cwd/home/.inputrc" ~/.inputrc
-ln -s "$cwd/home/.gitconfig" ~/.gitconfig
-ln -s "$cwd/home/.gitprompt" ~/.gitprompt
+ln -s "$DIR/home/.bash_profile.LINUX" ~/.bashrc
+ln -s "$DIR/home/.functions" ~/.functions
+ln -s "$DIR/home/.inputrc" ~/.inputrc
+ln -s "$DIR/home/.gitconfig" ~/.gitconfig
+ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 
 source ~/.bashrc
 

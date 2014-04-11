@@ -1,15 +1,27 @@
-aptitude
-chromium-browser
-dos2unix
-fluxgui
-git
-git-core
-bash-completion
-nodejs
-php5
-python
-retext
-ruby
-terminator
-build-essential
-linux-libc-dev
+#!/usr/bin/env bash
+
+# Retext repository
+add-apt-repository ppa:mitya57
+
+# f.lux repository
+add-apt-repository ppa:kilian/f.lux
+
+# Terminator repository
+add-apt-repository ppa:gnome-terminator
+
+echo -e "Performing global apt-get update & upgrade..."
+(apt-get update && apt-get upgrade) > /dev/null 2>&1
+
+declare -a packages=(build-essential linux-libc-dev aptitude chromium-browser dos2unix fluxgui git git-core bash-completion nodejs php5 python retext ruby terminator);
+
+echo -e "Installing new packages..."
+for p in "${packages[@]}"
+do
+	apt-get install -y $p
+	if [ $? != 0 ]; then
+		echo -e "\t\033[31mFAIL\033[0m"
+	else
+		echo -e "\t\033[32mSUCCESS\033[0m"
+	fi
+done
+echo -e "--> Package installation completed!"

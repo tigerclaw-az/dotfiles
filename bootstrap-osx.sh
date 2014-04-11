@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 ###############################################################################
 # Homebrew                                                                    #
@@ -16,16 +17,21 @@ fi
 read -p "Do you want to update OSX defaults? " -n 1
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	ln -s home/.osx ~/.osx
+	if [ -f ~/.osx ]; then
+		mv ~/.osx ~/.osx.BAK
+	fi
+	ln -s "$DIR/home/.osx" ~/.osx
 	source ~/.osx
 fi
 
 echo -e "Linking home files..."
-ln -s home/.bash_profile ~/.profile
-ln -s home/.functions ~/.functions
-ln -s home/.inputrc ~/.inputrc
-ln -s home/.gitconfig ~/.gitconfig
-ln -s home/.gitprompt ~/.gitprompt
+ln -s "$DIR/home/.bash_profile.OSX" ~/.bashrc
+ln -s ~/.bashrc ~/.profile
+ln -s "$DIR/home/.aliases" ~/.aliases
+ln -s "$DIR/home/.functions" ~/.functions
+ln -s "$DIR/home/.inputrc" ~/.inputrc
+ln -s "$DIR/home/.gitconfig" ~/.gitconfig
+ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 
 source ~/.profile
 

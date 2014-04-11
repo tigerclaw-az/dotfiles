@@ -1,0 +1,25 @@
+prefix=$(brew --prefix)
+
+if [[ "$prefix" != "" ]]; then
+	export BYOBU_PREFIX=$prefix
+fi
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+# terminal color
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# brew & PHP 5.5
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:$(brew --prefix homebrew-php55)/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+
+# bash completion
+if [ -f $prefix/etc/bash_completion.d ]; then
+    source $prefix/etc/bash_completion.d/git-completion.bash
+    source $prefix/etc/bash_completion.d/git-prompt.sh
+fi
+
+source ~/.gitprompt
+source ~/.aliases
+source ~/.functions

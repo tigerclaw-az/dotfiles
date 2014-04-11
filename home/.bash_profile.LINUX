@@ -1,0 +1,13 @@
+# terminal color
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+export PATH="/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+source ~/.gitprompt
+source ~/.aliases
+source ~/.functions

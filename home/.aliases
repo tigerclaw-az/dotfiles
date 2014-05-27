@@ -198,6 +198,7 @@ alias gp="git push origin $1"
 alias gru="git remote update"
 alias gk="gitk --all&"
 alias gx="gitx --all"
+alias gpa='/usr/bin/find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
 
 # Set alias for sublime
 if ! [ -f /usr/bin/subl ]; then

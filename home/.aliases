@@ -55,7 +55,7 @@ else
 	alias reboot='sudo reboot'
 
 	# Perform Linux system and node updates
-	alias update='sudo sh -c "apt-get update && apt-get --yes upgrade && apt-get dist-upgrade; npm update npm; npm update -g; pear update-channels && pear upgrade"'
+	alias update='sudo sh -c "apt-get update && apt-get --yes upgrade && apt-get dist-upgrade; npm update npm; npm update -g; "'
 
 	alias apt-install='sudo apt-get --yes install '
 	alias apt-remove='sudo apt-get remove '
@@ -140,6 +140,9 @@ alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Change MAC address (assumes macchanger installed)
+alias changemac="ifconfig eth0 down && macchanger -m 00:AA:11:BB:22:CC eth0 && ifconfig eht0 up"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"

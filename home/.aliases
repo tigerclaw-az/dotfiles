@@ -50,7 +50,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	# Lock the screen (when going AFK)
 	alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
 else
+
 	alias apt-get="sudo apt-get"
 	alias reboot='sudo reboot'
 

@@ -21,3 +21,4 @@ source $prefix/etc/bash_completion.d/git-prompt.sh
 source ~/.gitprompt
 source ~/.aliases
 source ~/.functions
+

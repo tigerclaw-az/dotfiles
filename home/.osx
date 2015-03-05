@@ -343,7 +343,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-"Terminal" "Transmission" "Twitter" "iCal"; do
+"Terminal" "Transmission" "iCal"; do
 killall "${app}" > /dev/null 2>&1
 done
 

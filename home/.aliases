@@ -1,4 +1,22 @@
-# Easier navigation: .., ..., ...., ....., ~ and -
+# ---------------------------------------------------------------------------
+#
+# File: .aliases
+# Author: Erik J. Waibel
+# Description: This file holds all my BASH aliases. Add this file to your
+#              home directory and make sure it is sourced in your ~/.bash_profile
+# Last Modified: 03/04/2015
+#
+# ---------------------------------------------------------------------------
+
+#--------------------------------------------
+# Aliases and this file:
+#--------------------------------------------
+# showa: to remind yourself of an alias (given some part of it)
+showa () { /usr/bin/grep -i -a1 $@ ~/.aliases | grep -v '^\s*$' ; }
+
+#-----------------------
+# Navigation:
+#----------------------
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -6,7 +24,48 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# Shortcuts
+#----------------
+# Searching:
+#----------------
+alias qfind="find . -name "                 # qfind:    Quickly search for file
+
+# grepfind: to grep through files found by find, e.g. grepf pattern '*.c'
+# note that 'grep -r pattern dir_name' is an alternative if want all files 
+grepfind () { find . -type f -name "$2" -print0 | xargs -0 grep "$1" ; }
+# I often can't recall what I named this alias, so make it work either way: 
+alias findgrep='grepfind'
+
+#------------
+# Processes:
+#------------
+alias pstree='/sw/bin/pstree -g 2 -w'
+
+# findPid: find out the pid of a specified process
+#    Note that the command name can be specified via a regex
+#    E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
+#    Without the 'sudo' it will only find processes of the current user
+findPid () { sudo /usr/sbin/lsof -t -c "$@" ; }
+
+# to find memory hogs:
+alias mem_hogs_top='top -l 1 -o rsize -n 10'
+alias mem_hogs_ps='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+
+# to find CPU hogs
+alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+
+# continual 'top' listing (every 10 seconds) showing top 15 CPU consumers
+alias topforever='top -l 0 -s 10 -o cpu -n 15'
+
+# recommended 'top' invocation to minimize resources in thie macosxhints article
+# http://www.macosxhints.com/article.php?story=20060816123853639
+# exec /usr/bin/top -R -F -s 10 -o rsize
+
+# diskwho: to show processes reading/writing to disk
+alias diskwho='sudo iotop'
+
+#---------------
+# Start OSX
+#---------------
 if [[ "$OSTYPE" =~ ^darwin ]]; then
 	alias d="cd ~/Documents/Dropbox"
 	alias dl="cd ~/Downloads"
@@ -50,9 +109,13 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	# Lock the screen (when going AFK)
 	alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
+#-------------
+# End OSX
+#-------------
 else
-
+#----------------
+# Start Linux
+#----------------
 	alias apt-get="sudo apt-get"
 	alias reboot='sudo reboot'
 
@@ -141,7 +204,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flush="dscacheutil -flushcache"
 
 # Change MAC address (assumes macchanger installed)
 alias changemac="ifconfig eth0 down && macchanger -m 00:AA:11:BB:22:CC eth0 && ifconfig eht0 up"
@@ -195,7 +258,20 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-# -- Git Shortcuts --
+#-----------------
+# SVN:
+#-----------------
+alias sci="svn ci"
+alias sco="svn co"
+alias ssw="svn switch"
+alias sre="svn revert -R"
+alias sst="svn status"
+alias sdf="svn diff"
+alias sup="svn up"
+
+#------------
+# Git:
+#------------
 alias cherry-pick="git cherry-pick -x "
 alias ga="git add "
 alias gg="git log --oneline --abbrev-commit --all --graph --decorate --color"
@@ -206,6 +282,6 @@ alias gx="gitx --all"
 alias gpa='/usr/bin/find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
 
 # Set alias for sublime
-if ! [ -f /usr/bin/subl ]; then
+if [[ ! -f /usr/bin/subl ]]; then
 	alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
 fi

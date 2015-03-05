@@ -1,3 +1,27 @@
+#==================================================================
+#
+# File: ~/.functions
+# Author: Erik J. Waibel
+# Description: This file contains some useful bash functions.
+# Last Modified: 03/03/2015
+#
+#=================================================================
+
+# showa: to remind yourself of an alias (given some part of it)
+showa () { /usr/bin/grep -i -a1 $@ ~/.aliases | grep -v '^\s*$' ; }
+
+# list_all_apps: list all applications on the system
+list_all_apps() { mdfind 'kMDItemContentTypeTree == "com.apple.application"c' ; }
+
+# fixlines: edit files in place to ensure Unix line-endings
+fixlines () { /usr/bin/perl -pi~ -e 's/\r\n?/\n/g' "$@" ; }
+
+# edit: edit a file located in User's home directory and source after closing
+function edit() {
+	vi ~/$1
+	source ~/$1
+}
+
 # Simple calculator
 function calc() {
 	local result=""
@@ -25,6 +49,29 @@ function mkd() {
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
 }
+
+#	 extract: Extract most know archives with one command
+# 	---------------------------------------------------------
+	extract () {
+		if [ -f $1 ] ; then
+			case $1 in
+				*.tar.bz2) tar xjf $1 ;;
+				*.tar.gz) tar xzf $1 ;;
+				*.bz2) bunzip2 $1 ;;
+				*.rar) unrar e $1 ;;
+				*.gz) gunzip $1 ;;
+				*.tar) tar xf $1 ;;
+				*.tbz2) tar xjf $1 ;;
+				*.tgz) tar xzf $1 ;;
+				*.zip) unzip $1 ;;
+				*.Z) uncompress $1 ;;
+				*.7z) 7z x $1 ;;
+				*) echo "'$1' cannot be extracted via extract()" ;;
+			esac
+		else
+			echo "'$1' is not a valid file"
+		fi
+	}
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {

@@ -1,24 +1,69 @@
-prefix=$(brew --prefix)
+# ---------------------------------------------------------------------------
+#
+# Description: This file holds all my BASH configurations
+#
+# Sections:
+# 1. Environment Configuration
+# 2. Activate Additional Files
+# ---------------------------------------------------------------------------
 
-if [[ "$prefix" != "" ]]; then
-	export BYOBU_PREFIX=$prefix
-fi
+# 	-------------------------------
+# 	1. ENVIRONMENT CONFIGURATION
+# 	-------------------------------
 
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+#	Brew prefix (if applicable)
+# 	------------------------------------------------------------
+	prefix=$(brew --prefix)
 
-# terminal color
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+	if [[ "$prefix" != "" ]]; then
+		export BYOBU_PREFIX=$prefix
+	fi
 
-# brew & PHP 5.5
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:opt/local/bin:$(brew --prefix ruby)/bin:/opt/local/sbin:$(brew --prefix php54)/bin:/usr/local/mysql/bin:~/.composer/vendor/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin"
-export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
+#	Setup path variables
+# 	------------------------------------------------------------
+	export GDK_PIXBUF_MODULEDIR="/usr/local/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+	export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.4/bin/python3"
+	export GIT_PATH="/usr/local/Cellar/git/2.1.3/bin"
+	export GIT_CORE_PATH="/usr/local/Cellar/git/2.1.3/libexec/git-core"
+	export VLT_HOME="/Users/bztv56/CQ5.4/vault-cli-2.3.6"
+	export M2_HOME="/Users/bztv56/apache-maven-3.2.3"
+	export SVN_HOME="/opt/subversion/bin"
+	export PYTHON_HOME="/Library/Frameworks/Python.framework/Versions/3.4"
+	export PHP54_HOME="$(brew --prefix homebrew/php/php54)"
+	export MYSQL_HOME="$(brew --prefix mysql)"
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$SVN_HOME/bin:$PHP54_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$M2_HOME/bin:$PYTHONPATH/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
 
-# bash git completion
-source $prefix/etc/bash_completion.d/git-completion.bash
-source $prefix/etc/bash_completion.d/git-prompt.sh
+	export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
 
-source ~/.gitprompt
-source ~/.aliases
-source ~/.functions
+# 	Set Default Editor
+# 	------------------------------------------------------------
+	export EDITOR=/usr/bin/vi
 
+# 	Set terminal colors
+# 	------------------------------------------------------------
+	export CLICOLOR=1
+	export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# 	Maven
+# 	------------------------------------------------------------
+	export MAVEN_OPTS=' -Xms512m -Xmx512m -XX:MaxPermSize=512m'
+
+# 	bash git completion
+# 	------------------------------------------------------------
+	source $prefix/etc/bash_completion.d/git-completion.bash
+	source $prefix/etc/bash_completion.d/git-prompt.sh
+
+# 	-------------------------------
+# 	2. ACTIVATE ADDITIONAL FILES
+# 	-------------------------------
+	source ~/.gitprompt
+	source ~/.aliases
+	source ~/.functions
+
+	if [[ -f ~/.work-aliases ]]; then
+  		source ~/.work-aliases
+	fi
+
+	if [[ -f ~/proxy_config ]]; then
+  		source ~/proxy_config
+	fi

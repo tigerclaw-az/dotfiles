@@ -28,18 +28,19 @@ brew install php55
 
 # Install other useful binaries
 brew install ack
+brew install ant
 brew install git
 brew install imagemagick
+brew install lua52
 brew install lynx
 brew install node
 brew install pigz
 brew install rename
 brew install ruby
+brew install terminal-notifier
 brew install tree
 brew install webkit2png
 brew install zopfli
-
-brew install lua52
 
 # Remove outdated versions from the cellar
 brew cleanup

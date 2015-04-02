@@ -8,7 +8,10 @@ which -s brew
 if [[ $? != 0 ]]; then
 	echo "Installing Homebrew..."
 	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-	sh bin/.brew
+	brew tap homebrew/boneyard
+	cd bin/
+	brew bundle
+	cd ..
 fi
 
 ###############################################################################

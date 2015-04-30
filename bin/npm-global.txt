@@ -1,0 +1,6 @@
+/usr/local/lib
+├── grunt-cli@0.1.13
+├── gulp@3.8.11
+├── npm@2.7.5
+└── npm-check-updates@1.5.1
+

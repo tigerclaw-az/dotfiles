@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+#
+# File: .aliases.LINUX
+# Author: Erik J. Waibel
+# Description: This file holds all my BASH aliases for LINUX. Add this file to your
+#              home directory and make sure it is sourced in your ~/.bash_profile
+# Last Modified: 04/30/2015
+#
+# ---------------------------------------------------------------------------
+alias apt-get="sudo apt-get"
+alias reboot='sudo reboot'
+
+# Perform Linux system and node updates
+alias update='sudo sh -c "apt-get update && apt-get --yes upgrade && apt-get dist-upgrade; npm update npm; npm update -g; "'
+
+alias apt-install='sudo apt-get --yes install '
+alias apt-remove='sudo apt-get remove '
+alias npm-i='sudo npm install -g '
+alias npm-r='sudo npm remove '
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Generate sha1 digest
+alias sha1='openssl sha1'
+
+# Create parent directories on demand
+alias mkdir='mkdir -pv'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## older system use /proc/cpuinfo ##
+##alias cpuinfo='less /proc/cpuinfo' ##
+
+## get GPU ram on desktop / laptop##
+alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'

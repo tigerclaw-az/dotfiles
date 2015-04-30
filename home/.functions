@@ -3,9 +3,27 @@
 # File: ~/.functions
 # Author: Erik J. Waibel
 # Description: This file contains some useful bash functions.
-# Last Modified: 03/03/2015
+# Last Modified: 04/22/2015
 #
 #=================================================================
+
+# Convert binary code to text
+function bin2text() {
+    byte_string="$1" shift
+    for byte in `echo $byte_string`; do echo "$((2#$byte))" | awk '{printf "%c", $1}'; done ; 
+    echo
+}
+
+text2bin() {
+  string=$1; shift
+  OLDIFS=$IFS
+  IFS=$'\n'
+  for char in `echo "$string" | grep -o .`; do
+    printf '%d ' "'$char'" | awk '{print "ibase=10;obase=2;" $1}' | bc | xargs printf "%08d "
+  done
+  IFS=$OLDIFS
+  echo
+}
 
 # showa: to remind yourself of an alias (given some part of it)
 showa () { /usr/bin/grep -i -a1 $@ ~/.aliases | grep -v '^\s*$' ; }

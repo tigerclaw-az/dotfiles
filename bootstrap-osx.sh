@@ -24,19 +24,19 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		mv ~/.osx ~/.osx.BAK
 	fi
 	ln -s "$DIR/home/.osx" ~/.osx
-	source ~/.osx
 fi
+source ~/.osx
 
 echo -e "Linking home files..."
-ln -s "$DIR/home/.bash_profile.OSX" ~/.bashrc
-ln -s ~/.bashrc ~/.profile
+ln -s "$DIR/home/.bash_profile.OSX" ~/.bash_profile
+ln -s "$DIR/home/.aliases.OSX" ~/.aliases.OSX
+ln -s ~/.bash_profile ~/.profile
+ln -s ~/.bash_profile ~/.bashrc
 ln -s "$DIR/home/.aliases" ~/.aliases
 ln -s "$DIR/home/.functions" ~/.functions
 ln -s "$DIR/home/.inputrc" ~/.inputrc
 ln -s "$DIR/home/.gitconfig" ~/.gitconfig
 ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 
-source ~/.profile
+source ~/.bash_profile
 
-echo -e "----"
-echo -e "Download Sublime Text: http://www.sublimetext.com/3"

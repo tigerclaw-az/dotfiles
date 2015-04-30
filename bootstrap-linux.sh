@@ -34,6 +34,7 @@ fi
 
 echo -e "Linking home files..."
 ln -s "$DIR/home/.bash_profile.LINUX" ~/.bashrc
+ln -s "$DIR/home/.aliases.LINUX" ~/.aliases.LINUX
 ln -s "$DIR/home/.functions" ~/.functions
 ln -s "$DIR/home/.inputrc" ~/.inputrc
 ln -s "$DIR/home/.gitconfig" ~/.gitconfig

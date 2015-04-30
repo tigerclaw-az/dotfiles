@@ -10,4 +10,5 @@ fi
 
 source ~/.gitprompt
 source ~/.aliases
+source ~/.aliases.LINUX
 source ~/.functions

@@ -30,9 +30,9 @@ alias -- -="cd -"
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 
 # grepfind: to grep through files found by find, e.g. grepf pattern '*.c'
-# note that 'grep -r pattern dir_name' is an alternative if want all files 
+# note that 'grep -r pattern dir_name' is an alternative if want all files
 grepfind () { find . -type f -name "$2" -print0 | xargs -0 grep "$1" ; }
-# I often can't recall what I named this alias, so make it work either way: 
+# I often can't recall what I named this alias, so make it work either way:
 alias findgrep='grepfind'
 
 #------------
@@ -62,102 +62,6 @@ alias topforever='top -l 0 -s 10 -o cpu -n 15'
 
 # diskwho: to show processes reading/writing to disk
 alias diskwho='sudo iotop'
-
-#---------------
-# Start OSX
-#---------------
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-	alias d="cd ~/Documents/Dropbox"
-	alias dl="cd ~/Downloads"
-	alias dt="cd ~/Desktop"
-	alias p="cd ~/projects"
-
-	# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-	alias update='sudo softwareupdate -i -a; brew update && brew upgrade && brew cleanup; sudo npm update -g; sudo gem update --system; sudo gem update'
-
-	# Clean up LaunchServices to remove duplicates in the “Open With” menu
-	alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-	# Recursively delete `.DS_Store` files
-	alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-	# Empty the Trash on all mounted volumes and the main HDD
-	# Also, clear Apple’s System Logs to improve shell startup speed
-	alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
-
-	# Show/hide hidden files in Finder
-	alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-	alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
-	# Hide/show all desktop icons (useful when presenting)
-	alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-	alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-	# Merge PDF files
-	# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-	alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
-	# Disable Spotlight
-	alias spotoff="sudo mdutil -a -i off"
-	# Enable Spotlight
-	alias spoton="sudo mdutil -a -i on"
-
-	# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-	alias stfu="osascript -e 'set volume output muted true'"
-	alias pumpitup="osascript -e 'set volume 7'"
-	alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
-
-	# Lock the screen (when going AFK)
-	alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-#-------------
-# End OSX
-#-------------
-else
-#----------------
-# Start Linux
-#----------------
-	alias apt-get="sudo apt-get"
-	alias reboot='sudo reboot'
-
-	# Perform Linux system and node updates
-	alias update='sudo sh -c "apt-get update && apt-get --yes upgrade && apt-get dist-upgrade; npm update npm; npm update -g; "'
-
-	alias apt-install='sudo apt-get --yes install '
-	alias apt-remove='sudo apt-get remove '
-	alias npm-i='sudo npm install -g '
-	alias npm-r='sudo npm remove '
-
-	## Colorize the grep command output for ease of use (good for log files)##
-	alias grep='grep --color=auto'
-	alias egrep='egrep --color=auto'
-	alias fgrep='fgrep --color=auto'
-
-	# Generate sha1 digest
-	alias sha1='openssl sha1'
-
-	# Create parent directories on demand
-	alias mkdir='mkdir -pv'
-
-	## pass options to free ##
-	alias meminfo='free -m -l -t'
-
-	## get top process eating memory
-	alias psmem='ps auxf | sort -nr -k 4'
-	alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-	## get top process eating cpu ##
-	alias pscpu='ps auxf | sort -nr -k 3'
-	alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-	## Get server cpu info ##
-	alias cpuinfo='lscpu'
-
-	## older system use /proc/cpuinfo ##
-	##alias cpuinfo='less /proc/cpuinfo' ##
-
-	## get GPU ram on desktop / laptop##
-	alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
-fi
 
 alias j='jobs -l'
 alias g="git"

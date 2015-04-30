@@ -15,18 +15,12 @@ install bash
 # Install wget with IRI support
 install wget --enable-iri
 
-install homebrew/dupes/grep
-install php54
-install php55
-install php56
-
 # Install other useful binaries
 install ack
 install ant
 install cask
 install git
 install imagemagick
-install lua52
 install lynx
 install node
 install pigz
@@ -39,6 +33,12 @@ install tree
 install webkit2png
 install zopfli
 
+# Install PHP versions
+install homebrew/dupes/grep
+install -k php54
+install -k php55
+install -k php56
+
 # Install Cask
 install caskroom/cask/brew-cask
 
@@ -50,15 +50,8 @@ cask install caffeine
 cask install flux
 cask install sublime-text3
 
-cask install virtualbox
-cask install vagrant
-
 cask install firefox
 cask install google-chrome
 cask install iterm2
-cask install sequel-pro
-cask install x-quartz
+cask install xquartz
 
-cask install adium
-cask install nvalt
-cask install textexpander

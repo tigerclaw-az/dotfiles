@@ -20,6 +20,7 @@ install ack
 install ant
 install cask
 install git
+install bash-git-prompt
 install imagemagick
 install lynx
 install node
@@ -48,10 +49,8 @@ tap caskroom/versions
 # Install Casks
 cask install caffeine
 cask install flux
-cask install sublime-text3
 
 cask install firefox
 cask install google-chrome
 cask install iterm2
-cask install xquartz
 

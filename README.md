@@ -8,6 +8,7 @@ Plase all files into your home directory and then follow instructions for applic
 You must have Xcode installed.
 
 * Run `bootstrap-osx.sh`
+* Manual install of [http://www.alexkras.com/how-to-run-meld-on-mac-os-x-yosemite-without-homebrew-macports-or-think/](Meld)
 
 ## Ubuntu
 

@@ -31,9 +31,11 @@ alias qfind="find . -name "                 # qfind:    Quickly search for file
 
 # grepfind: to grep through files found by find, e.g. grepf pattern '*.c'
 # note that 'grep -r pattern dir_name' is an alternative if want all files
-grepfind () { find . -type f -name "$2" -print0 | xargs -0 grep "$1" ; }
+grepfind () { find . -type f -name "$2" -print | xargs -0 grep "$1" ; }
 # I often can't recall what I named this alias, so make it work either way:
 alias findgrep='grepfind'
+
+findrm () { find . -name "$1" -exec rm -f {} ; }
 
 #------------
 # Processes:
@@ -185,7 +187,3 @@ alias gk="gitk --all&"
 alias gx="gitx --all"
 alias gpa='/usr/bin/find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;'
 
-# Set alias for sublime
-if [[ ! -f /usr/bin/subl ]]; then
-	alias subl="/Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
-fi

@@ -26,17 +26,18 @@
 #	Setup path variables
 # 	------------------------------------------------------------
 	export GDK_PIXBUF_MODULEDIR="/usr/local/lib/gdk-pixbuf-2.0/2.10.0/loaders"
-	export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.4/bin/python3"
+	#export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.4/bin/python3"
+	export PYTHONPATH="/usr/local/lib/python2.7/site-packages/"
 	export GIT_PATH="/usr/local/Cellar/git/2.1.3/bin"
 	export GIT_CORE_PATH="/usr/local/Cellar/git/2.1.3/libexec/git-core"
-	#export VLT_HOME="/Users/bztv56/CQ5.4/vault-cli-2.3.6"
-	export VLT_HOME="/Users/bztv56/AEM6.0/vault-cli-3.1.6"
-	export M2_HOME="/Users/bztv56/apache-maven-3.2.5"
+	#export VLT_HOME="$HOME/CQ5.4/vault-cli-2.3.6"
+	export VLT_HOME="$HOME/AEM6.0/vault-cli-3.1.6"
+	export M2_HOME="$HOME/apache-maven-3.2.5"
 	export PYTHON_HOME="$(brew --prefix python)"
 	export PYTHON3_HOME="$(brew --prefix python3)"
 	export PHP54_HOME="$(brew --prefix homebrew/php/php54)"
 	export MYSQL_HOME="$(brew --prefix mysql)"
-	export PATH="$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PYTHON3_HOME/bin:$PHP54_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$M2_HOME/bin:$PYTHONPATH/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$HOME/bin:$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PYTHON3_HOME/bin:$PHP54_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$M2_HOME/bin:$PYTHONPATH/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
 
 	export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
 
@@ -61,7 +62,9 @@
 # 	-------------------------------
 # 	2. ACTIVATE ADDITIONAL FILES
 # 	-------------------------------
-	source ~/.gitprompt
+	if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    		source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+	fi
 	source ~/.aliases
 	source ~/.aliases.OSX
 	source ~/.functions
@@ -73,5 +76,11 @@
 
 	if [[ -f ~/proxy_config ]]; then
   		source ~/proxy_config
+		enable_proxy
+	fi
+
+	# Set alias for sublime
+	if [[ ! -f /usr/bin/subl ]]; then
+        	ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" $HOME/bin/subl
 	fi
 

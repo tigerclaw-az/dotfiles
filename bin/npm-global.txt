@@ -1,6 +1,9 @@
 /usr/local/lib
+├── bower@1.4.1
+├── bower-update@0.1.0
 ├── grunt-cli@0.1.13
 ├── gulp@3.8.11
-├── npm@2.7.5
+├── node-inspector@0.10.0
+├── npm@2.8.4
 └── npm-check-updates@1.5.1
 

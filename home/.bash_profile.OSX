@@ -57,14 +57,17 @@
 # 	bash git completion
 # 	------------------------------------------------------------
 	source $prefix/etc/bash_completion.d/git-completion.bash
-	source $prefix/etc/bash_completion.d/git-prompt.sh
+	if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    		source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+	fi
+
+#	Github Tokens
+# 	------------------------------------------------------------
+	export CHANGELOG_GITHUB_TOKEN=1cd8680ead307eaae6797a1e46cf51aca9c118e0
 
 # 	-------------------------------
 # 	2. ACTIVATE ADDITIONAL FILES
 # 	-------------------------------
-	if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-    		source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-	fi
 	source ~/.aliases
 	source ~/.aliases.OSX
 	source ~/.functions
@@ -80,7 +83,7 @@
 	fi
 
 	# Set alias for sublime
-	if [[ ! -f /usr/bin/subl ]]; then
+	if [[ ! -f $HOME/bin/subl ]]; then
         	ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" $HOME/bin/subl
 	fi
 

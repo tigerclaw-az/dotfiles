@@ -45,7 +45,7 @@ GIT_PS1_SHOWUPSTREAM=verbose
 #     branch        relative to newer tag or branch (master~4)
 #     describe      relative to older annotated tag (v1.6.3.1-13-gdd42c2f)
 #     default       exactly matching tag
-#GIT_PS1_DESCRIBE_STYLE=default
+GIT_PS1_DESCRIBE_STYLE=default
 
 # If you would like a colored hint about the current dirty state, set
 # GIT_PS1_SHOWCOLORHINTS to a nonempty value. The colors are based on

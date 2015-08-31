@@ -1,6 +1,6 @@
 [core]
 	autocrlf = false
-	editor = /usr/bin/subl --wait
+	editor = subl -n -w
 
 [color]
 	diff = auto
@@ -27,17 +27,23 @@
 
 [user]
 	name = Erik Waibel
-	email = ejwaibel@gmail.com
+	email = erik.waibel@gm.com
 
 [push]
 	default = current
 
-[merge]
-	tool = meld
+[diff]
+	tool = "sourcetree"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 
-[mergetool]
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 	keepBackup = false
-
+[merge]
+	tool = sourcetree
 [branch]
 	autosetupmerge = true
 
@@ -57,3 +63,9 @@
   	df = diff -w -b
   	mg = merge --no-ff
         mvtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1 && git push --tags; }; f"
+	sdiff = !git diff && git submodule foreach 'git diff'
+	spush = push --recurse-submodules=on-demand
+	supdate = submodule update --remote --merge
+
+[status]
+	submodulesummary = 1

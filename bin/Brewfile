@@ -1,56 +1,93 @@
-# Install more recent versions of some OS X tools
-tap homebrew/dupes
-tap homebrew/versions
-tap homebrew/homebrew-php
-
-# Install GNU core utilities (those that come with OS X are outdated)
-install coreutils
-
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-install findutils
-
-# Install Bash 4
-install bash
-
-# Install wget with IRI support
-install wget --enable-iri
-
-# Install other useful binaries
-install ack
-install ant
-install cask
-install git
-install bash-git-prompt
-install imagemagick
-install lynx
-install node
-install pigz
-install python
-install python3
-install rename
-install ruby
-install terminal-notifier
-install tree
-install webkit2png
-install zopfli
-
-# Install PHP versions
-install homebrew/dupes/grep
-install -k php54
-install -k php55
-install -k php56
-
-# Install Cask
-install caskroom/cask/brew-cask
 
 # Tap versions for Casks
-tap caskroom/versions
+tap 'caskroom/cask'
+tap 'caskroom/versions'
+tap 'phinze/cask'
+
+# Install more recent versions of some OS X tools
+tap 'homebrew/dupes'
+tap 'homebrew/versions'
+tap 'homebrew/x11'
+
+# Install Cask
+brew 'caskroom/cask/brew-cask'
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew 'coreutils'
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew 'findutils'
+
+# Install wget with IRI support
+brew 'wget', args: ['with-iri']
+
+# Install other useful binaries
+brew 'ack'
+brew 'ant'
+brew 'atk'
+brew 'autoconf'
+brew 'automake'
+brew 'bash'
+brew 'bash-git-prompt'
+brew 'cask'
+brew 'cairo'
+brew 'curl'
+brew 'dos2unix'
+brew 'emacs'
+brew 'fontconfig'
+brew 'freetype'
+brew 'gdbm'
+brew 'gdk-pixbuf'
+brew 'gettext'
+brew 'git'
+brew 'glib'
+brew 'gobject-introspection'
+brew 'gsettings-desktop-schemas'
+brew 'gtk+3'
+brew 'gtk-mac-integration'
+brew 'gtksourceview'
+brew 'harfbuzz'
+brew 'icu4c'
+brew 'imagemagick'
+brew 'intltool'
+brew 'jpeg'
+brew 'libepoxy'
+brew 'libffi'
+brew 'libidn'
+brew 'libpng'
+brew 'libtiff'
+brew 'libtool'
+brew 'libyaml'
+brew 'lynx'
+brew 'makedepend'
+brew 'node'
+brew 'openssl'
+brew 'pango'
+brew 'pcre'
+brew 'pigz'
+brew 'pixman'
+brew 'pkg-config'
+brew 'pygtksourceview'
+brew 'python'
+brew 'python3'
+brew 'rarian'
+brew 'readline'
+brew 'rename'
+brew 'ruby'
+brew 'sqlite'
+brew 'terminal-notifier'
+brew 'tree'
+brew 'webkit2png'
+brew 'xz'
+brew 'zopfli'
+
+# Install PHP versions
+tap 'homebrew/php'
+brew 'homebrew/dupes/grep'
+brew 'php54'
 
 # Install Casks
-cask install caffeine
-cask install flux
-
-cask install firefox
-cask install google-chrome
-cask install iterm2
-
+cask 'caffeine'
+cask 'flux'
+cask 'macdown'
+cask 'iterm2'

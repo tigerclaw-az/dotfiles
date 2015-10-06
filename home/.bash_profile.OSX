@@ -35,9 +35,10 @@
 	export M2_HOME="$HOME/apache-maven-3.2.5"
 	export PYTHON_HOME="$(brew --prefix python)"
 	export PYTHON3_HOME="$(brew --prefix python3)"
-	export PHP54_HOME="$(brew --prefix homebrew/php/php54)"
+	#export PHP_HOME="$(brew --prefix homebrew/php/php54)"
+	export PHP_HOME="$(brew --prefix homebrew/php/php56)"
 	export MYSQL_HOME="$(brew --prefix mysql)"
-	export PATH="$HOME/bin:$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PYTHON3_HOME/bin:$PHP54_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$M2_HOME/bin:$PYTHONPATH/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$HOME/bin:$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PYTHON3_HOME/bin:$PHP_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$M2_HOME/bin:$PYTHONPATH/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
 
 	export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
 
@@ -71,7 +72,6 @@
 	source ~/.aliases
 	source ~/.aliases.OSX
 	source ~/.functions
-
 
 	if [[ -f ~/.work-aliases ]]; then
   		source ~/.work-aliases

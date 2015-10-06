@@ -62,10 +62,6 @@
     		source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 	fi
 
-#	Github Tokens
-# 	------------------------------------------------------------
-	export CHANGELOG_GITHUB_TOKEN=1cd8680ead307eaae6797a1e46cf51aca9c118e0
-
 # 	-------------------------------
 # 	2. ACTIVATE ADDITIONAL FILES
 # 	-------------------------------

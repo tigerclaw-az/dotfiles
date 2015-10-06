@@ -1,0 +1,38 @@
+#!/bin/sh
+proxy=<proxy>
+function enable_proxy() {
+  export http_proxy=http://<user>:<pass>@$proxy:80/
+  export ALL_PROXY=$http_proxy
+  export https_proxy=$http_proxy
+  export HTTPS_PROXY=$http_proxy
+
+  git config --global http.proxy $http_proxy
+  git config --global https.proxy $https_proxy
+
+  npm config set proxy $http_proxy
+  npm config set https-proxy $http_proxy
+
+  launchctl setenv http_proxy $http_proxy
+  launchctl setenv https_proxy $https_proxy
+
+  echo "Updated Proxy\n"
+}
+
+function disable_proxy() {
+  unset http_proxy
+  unset https_proxy
+  unset HTTPS_PROXY
+  unset ALL_PROXY
+
+  git config --global --remove-section http
+  git config --global --remove-section https
+
+  npm config delete proxy
+  npm config delete https-proxy
+
+  launchctl unsetenv http_proxy
+  launchctl unsetenv https_proxy
+
+  echo "Removed proxy!\n"
+}
+

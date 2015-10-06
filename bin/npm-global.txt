@@ -1,9 +1,14 @@
 /usr/local/lib
-├── bower@1.4.1
+├── bower@1.5.2
 ├── bower-update@0.1.0
+├── generator-gulp-webapp@1.0.3
+├── generator-mocha@0.2.0
 ├── grunt-cli@0.1.13
-├── gulp@3.8.11
-├── node-inspector@0.10.0
-├── npm@2.8.4
-└── npm-check-updates@1.5.1
+├── gulp@3.9.0
+├── jscs@2.1.1
+├── jshint@2.8.0
+├── node-inspector@0.12.3
+├── npm@2.14.2
+├── npm-check-updates@2.2.3
+└── yo@1.4.8
 

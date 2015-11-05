@@ -85,7 +85,15 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80 
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 40 
+defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 40 
+#defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80 
+defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 40 
+defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80 
+defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 40
+defaults write com.apple.BluetoothAudioAgent "Stream - Flush Ring on Packet Drop (editable)" 0
+defaults write com.apple.BluetoothAudioAgent "Stream - Max Outstanding Packets (editable)" 15
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1

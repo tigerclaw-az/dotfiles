@@ -84,7 +84,7 @@ brew 'zopfli'
 # Install PHP versions
 tap 'homebrew/php'
 brew 'homebrew/dupes/grep'
-brew 'php54'
+brew 'php56'
 
 # Install Casks
 cask 'caffeine'

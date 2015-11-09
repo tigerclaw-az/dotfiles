@@ -24,8 +24,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		mv ~/.osx ~/.osx.BAK
 	fi
 	ln -s "$DIR/home/.osx" ~/.osx
+
+	source ~/.osx
 fi
-source ~/.osx
 
 echo -e "Linking home files..."
 ln -s "$DIR/home/.bash_profile.OSX" ~/.bash_profile

@@ -1,6 +1,7 @@
 [core]
 	autocrlf = false
 	editor = subl -n -w
+	excludesfile = /Users/bztv56/.gitignore_global
 
 [color]
 	diff = auto
@@ -21,29 +22,29 @@
 	new = green bold
 
 [color "status"]
-	added = green 
+	added = green
 	changed = yellow
 	untracked = cyan
-
-[user]
-	name = Erik Waibel
-	email = erik.waibel@gm.com
 
 [push]
 	default = current
 
 [diff]
-	tool = "sourcetree"
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	guitool = meld
+	tool = meld
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[difftool "meld"]
+	path = "meld"
+	prompt = false
+
+[mergetool "meld"]
 	trustExitCode = true
 	keepBackup = false
+	prompt = false
+
 [merge]
-	tool = sourcetree
+	tool = meld
+
 [branch]
 	autosetupmerge = true
 
@@ -61,11 +62,14 @@
   	rmbr = branch -D
   	co = checkout
   	df = diff -w -b
+  	dt = difftool --no-prompt
   	mg = merge --no-ff
         mvtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1 && git push --tags; }; f"
 	sdiff = !git diff && git submodule foreach 'git diff'
 	spush = push --recurse-submodules=on-demand
 	supdate = submodule update --remote --merge
-
+	sf = submodule foreach
 [status]
 	submodulesummary = 1
+[credential]
+	helper = osxkeychain

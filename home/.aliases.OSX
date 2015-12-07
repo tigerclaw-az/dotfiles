@@ -13,7 +13,7 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='brew update && brew upgrade && brew cleanup; sudo npm update -g; sudo gem update --system; sudo gem update'
+alias update='brew update && brew upgrade && brew cleanup; sudo npm update -g;'
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"

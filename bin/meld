@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+import sys
+import os
+import subprocess
+
+MELDPATH = "/Applications/Meld.app"
+
+subprocess.call( ['open', '-W', '-a', MELDPATH, '--args'] + map( os.path.abspath, sys.argv[1:] ) )

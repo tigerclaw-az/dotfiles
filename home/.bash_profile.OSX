@@ -35,7 +35,7 @@
 	export PYTHON3_HOME="$(brew --prefix python3)"
 	export PHP_HOME="$(brew --prefix homebrew/php/php56)"
 	export MYSQL_HOME="$(brew --prefix mysql)"
-	export PATH="$HOME/bin:$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PHP_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:/usr/local/bin:/usr/local/sbin::/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$HOME/bin:$SVN_HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PHP_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 	export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
 
@@ -50,7 +50,7 @@
 
 # 	Maven
 # 	------------------------------------------------------------
-	export MAVEN_OPTS=' -Xms1280m -Xmx1280m -XX:MaxPermSize=1280m'
+	export MAVEN_OPTS=' -Xms1860m -Xmx1860m -XX:MaxPermSize=1280m'
 
 # 	bash git completion
 # 	------------------------------------------------------------

@@ -30,20 +30,25 @@
 	default = current
 
 [diff]
-	guitool = meld
 	tool = meld
 
+[difftool]
+	prompt = false
+
 [difftool "meld"]
-	path = "meld"
+	trustExitCode = true
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+
+[merge]
+	tool = meld
+
+[mergetool]
+	keepBackup = false
 	prompt = false
 
 [mergetool "meld"]
 	trustExitCode = true
-	keepBackup = false
-	prompt = false
-
-[merge]
-	tool = meld
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output \"$PWD/$MERGED\"
 
 [branch]
 	autosetupmerge = true
@@ -57,19 +62,31 @@
 	lgp = "log -p"
 	st = status
   	ci = commit
+  	undo-ci = reset --soft HEAD^
+  	unstage = reset HEAD
   	br = branch
   	mkbr = checkout -b
-  	rmbr = branch -D
+  	rmbr = branch -d
+  	rmbrf = branch -D
   	co = checkout
   	df = diff -w -b
   	dt = difftool --no-prompt
   	mg = merge --no-ff
-        mvtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1 && git push --tags; }; f"
+  	mt = mergetool --no-prompt
+  	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+    mvtag = "!f() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1 && git push --tags; }; f"
 	sdiff = !git diff && git submodule foreach 'git diff'
 	spush = push --recurse-submodules=on-demand
+	spull = pull --recurse-submodules
 	supdate = submodule update --remote --merge
 	sf = submodule foreach
-[status]
-	submodulesummary = 1
+[hooks]
+	global = /Users/bztv56/git-repos/git-hooks/hooks
 [credential]
 	helper = osxkeychain
+[merge "ours"]
+	driver = true
+[http]
+	proxy = http://bztv56:Sk3l3tor0316@naproxy.gm.com:80/
+[https]
+	proxy = http://bztv56:Sk3l3tor0316@naproxy.gm.com:80/

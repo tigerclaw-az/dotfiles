@@ -86,7 +86,3 @@
 	helper = osxkeychain
 [merge "ours"]
 	driver = true
-[http]
-	proxy = http://bztv56:Sk3l3tor0316@naproxy.gm.com:80/
-[https]
-	proxy = http://bztv56:Sk3l3tor0316@naproxy.gm.com:80/

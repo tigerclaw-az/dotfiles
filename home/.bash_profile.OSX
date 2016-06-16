@@ -13,11 +13,14 @@
 
 #	Brew prefix (if applicable)
 # 	------------------------------------------------------------
-	prefix=$(brew --prefix)
+	prefix="/usr/local/opt"
+	coreutils="${prefix}/coreutils"
 
 	if [[ "$prefix" != "" ]]; then
 		export BYOBU_PREFIX=$prefix
 	fi
+
+	source ~/bin/gbrd-tools/tools_bashrc
 
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------
@@ -26,18 +29,18 @@
 #	Setup path variables
 # 	------------------------------------------------------------
 	export GDK_PIXBUF_MODULEDIR="/usr/local/lib/gdk-pixbuf-2.0/2.10.0/loaders"
-	export GIT_PATH="$(brew --prefix git)/bin"
+	export GIT_PATH="${prefix}/git/bin"
 	export GIT_CORE_PATH="$GIT_PATH/../libexec/git-core"
 	export GIT_MERGE_AUTOEDIT="false"
 	#export VLT_HOME="$HOME/CQ5.4/vault-cli-2.3.6"
 	export VLT_HOME="$HOME/AEM/vault-cli-3.1.6"
-	export PYTHON_HOME="$(brew --prefix python)"
-	export PYTHON3_HOME="$(brew --prefix python3)"
-	export PHP_HOME="$(brew --prefix homebrew/php/php56)"
-	export MYSQL_HOME="$(brew --prefix mysql)"
-	export PATH="$HOME/bin:$(brew --prefix coreutils)/libexec/gnubin:$PYTHON_HOME/bin:$PHP_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+	export PYTHON_HOME="${prefix}/python"
+	export PYTHON3_HOME="${prefix}/python3"
+	export PHP_HOME="${prefix}/php56"
+	export MYSQL_HOME="${prefix}/mysql"
+	export PATH="$HOME/bin:$coreutils/libexec/gnubin:$PYTHON_HOME/bin:$PHP_HOME/bin:$MYSQL_HOME/bin:$VLT_HOME/bin:$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
-	export MANPATH=$(brew --prefix coreutils)/libexec/gnubin:$MANPATH
+	export MANPATH=$coreutils/libexec/gnubin:$MANPATH
 
 # 	Set Default Editor
 # 	------------------------------------------------------------
@@ -48,35 +51,32 @@
 	export CLICOLOR=1
 	export LSCOLORS=GxFxCxDxBxegedabagaced
 
-# 	Maven
-# 	------------------------------------------------------------
-	export MAVEN_OPTS=' -Xms2048m -Xmx2048m -XX:MaxPermSize=512m'
-
 # 	bash git completion
 # 	------------------------------------------------------------
 	if [ -f "$prefix/etc/bash_completion.d/git-completion.bash" ]; then
 		source $prefix/etc/bash_completion.d/git-completion.bash
 	fi
 
-	if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-		source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+	if [ -f "${prefix}/bash-git-prompt/share/gitprompt.sh" ]; then
+		source "${prefix}/bash-git-prompt/share/gitprompt.sh"
 	fi
+
+# 	iTerm2 Shell Integration
+# 	-------------------------------
+	test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 # 	-------------------------------
 # 	2. ACTIVATE ADDITIONAL FILES
 # 	-------------------------------
-	source ~/.aliases
-	source ~/.aliases.OSX
-	source ~/.functions
-
-	if [[ -f ~/.work-aliases ]]; then
-  		source ~/.work-aliases
-	fi
+	test -e "~/.aliases" && source ~/.aliases
+	test -e "~/.aliases.OSX" && source ~/.aliases.OSX
+	test -e "~/.functions" && source ~/.functions
+	test -e "~/.work-aliases" && source ~/.work-aliases
 
 	setjdk 1.7
 
 	if [[ -f ~/proxy_config ]]; then
-  		source ~/proxy_config
+ 		source ~/proxy_config
 		enable_proxy
 	fi
 
@@ -85,4 +85,3 @@
 		mkdir ~/bin
 		ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $HOME/bin/subl
 	fi
-

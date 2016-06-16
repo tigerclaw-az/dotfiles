@@ -3,9 +3,15 @@
 # File: ~/.functions
 # Author: Erik J. Waibel
 # Description: This file contains some useful bash functions.
-# Last Modified: 04/22/2015
+# Last Modified: 06/09/2016
 #
 #=================================================================
+
+# Use the 'nohup' command to send commands to background
+nhdn () {
+  local command=$@
+  nohup $command > /dev/null 2>&1 &
+}
 
 # Convert binary code to text
 function bin2text() {

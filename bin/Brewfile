@@ -59,6 +59,7 @@ brew 'libtiff'
 brew 'libtool'
 brew 'libyaml'
 brew 'lynx'
+brew 'macvim', args: ['env-std', 'with-override-system-vim']
 brew 'makedepend'
 brew 'maven'
 brew 'node5'

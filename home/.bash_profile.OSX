@@ -22,7 +22,7 @@
 		export BYOBU_PREFIX=$prefix
 	fi
 
-	source ~/bin/tools/tools_bashrc
+	source ~/git-repos/tools/tools_bashrc
 
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------

@@ -77,5 +77,3 @@
 
 	setjdk 1.7
 	enable_proxy
-
-say -v whisper 'Heeeeeeeeeeeey Erik'

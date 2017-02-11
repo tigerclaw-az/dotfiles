@@ -9,9 +9,6 @@ tap 'homebrew/dupes'
 tap 'homebrew/versions'
 tap 'homebrew/x11'
 
-# Install Cask
-brew 'caskroom/cask/brew-cask'
-
 # Install GNU core utilities (those that come with OS X are outdated)
 brew 'coreutils'
 
@@ -23,13 +20,11 @@ brew 'wget', args: ['with-iri']
 
 # Install other useful binaries
 brew 'ack'
-brew 'ant'
 brew 'atk'
 brew 'autoconf'
 brew 'automake'
 brew 'bash'
 brew 'bash-git-prompt'
-brew 'cask'
 brew 'cairo'
 brew 'curl'
 brew 'dos2unix'
@@ -65,14 +60,11 @@ brew 'maven'
 brew 'node5'
 brew 'openssl'
 brew 'pango'
-brew 'pcre'
 brew 'pigz'
-brew 'pixman'
 brew 'pkg-config'
 brew 'pygtksourceview'
 brew 'python'
 brew 'python3'
-brew 'rarian'
 brew 'readline'
 brew 'rename'
 brew 'ruby'
@@ -80,7 +72,6 @@ brew 'sqlite'
 brew 'terminal-notifier'
 brew 'tree'
 brew 'webkit2png'
-brew 'xz'
 brew 'zopfli'
 
 # Install PHP versions
@@ -88,8 +79,13 @@ tap 'homebrew/php'
 brew 'homebrew/dupes/grep'
 brew 'php56'
 
-# Install Casks
+# Install Cask
+brew 'caskroom/cask/brew-cask'
+brew 'cask'
+
+# Install Cask applications
 cask 'caffeine'
 cask 'flux'
 cask 'macdown'
 cask 'iterm2'
+cast 'bitbar'

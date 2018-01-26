@@ -10,6 +10,7 @@
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dv="cd ~/Developer"
 alias p="cd ~/projects"
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages

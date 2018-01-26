@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Lubuntu Applications repository
+apt-add-repository -y ppa:lubuntu-desktop/ppa
+
+# Retext repository
+add-apt-repository -y ppa:mitya57
+
+# flux repository
+# See: https://github.com/xflux-gui/fluxgui
+add-apt-repository -y ppa:nathan-renniewaldock/flux
+
+# Terminator repository
+add-apt-repository -y ppa:gnome-terminator

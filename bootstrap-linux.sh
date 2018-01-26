@@ -11,6 +11,7 @@ fi
 ###############################################################################
 read -p "Do you want to perform install/upgrade?[yN] " -n 1
 if [[ $REPLY =~ ^[Yy]$ ]]; then
+	sh bin/.repositories
 	sh bin/.packages
 fi
 
@@ -19,17 +20,36 @@ fi
 ###############################################################################
 read -p "Do you want to install the Macbuntu theme [yN]? " -n 1
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-	wget https://downloads.sourceforge.net/project/macbuntu/macbuntu-10.10/v2.3/Macbuntu-10.10.tar.gz -O /tmp/Macbuntu-10.10.tar.gz
-	tar xzvf /tmp/Macbuntu-10.10.tar.gz -C /tmp > /dev/null 2>&1
-	cd /tmp/Macbuntu-10.10/
-	echo "Performing Macbuntu install..."
-	./install.sh
+	echo "Installing dependencies..."
+	apt-get install gnome-shell gnome-tweak-tool
 	if [ $? != 0 ]; then
 		echo -e "\033[31mFAILED\033[0m"
+		echo "Run 'sudo apt-get install gnome-shell gnome-tweak-tool gtk2-engines-pixbuf'"
 	else
-		echo -e "\033[32mSUCCEEDED\033[0m"
+		add-apt-repository ppa:noobslab/macbuntu
+		apt-get update
+		apt-get install macbuntu-os-icons-v10 macbuntu-os-ithemes-v10 macbuntu-os-plank-theme-v9
+		echo "Performing Macbuntu install..."
+		# ./install.sh
+		if [ $? != 0 ]; then
+			echo -e "\033[31mFAILED\033[0m"
+			echo "Run 'sudo apt-get install macbuntu-os-icons-v10 macbuntu-os-ithemes-v10 macbuntu-os-plank-theme-v9'"
+		else
+			echo -e "\033[32mSUCCEEDED\033[0m"
+			echo "Changing window button layout..."
+			gsettings set org.gnome.desktop.wm.preferences button-layout "close,minimize,maximize:"
+
+			echo "Extract OSX theme..."
+			mkdir ~/.themes
+			tar -xvf bin/Gnome-OSX-V-HSierra-1-3-3.tar.xz -C ~/.themes
+		fi
 	fi
+
 	cd $pwd
+fi
+
+if [ -f ~/.bash-git-prompt ]; then
+	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 fi
 
 echo -e "Linking home files..."
@@ -43,5 +63,4 @@ ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 source ~/.bashrc
 
 echo -e "----"
-echo -e "Download Sublime Text: http://www.sublimetext.com/3"
 echo -e "Disable update manager: http://ubuntuforums.org/showthread.php?t=1966228\n"

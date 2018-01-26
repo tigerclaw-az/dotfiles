@@ -1,2 +1,2 @@
-npm install -g bower generator-gulp-webapp generator-mocha gulp jscs jshint node-inspector npm npm-check-updates yo sass-lint
+npm install -g yarn generator-gulp-webapp gulp jscs jshint eslint sass-lint node-inspector npm-check-updates yo xmllint
 

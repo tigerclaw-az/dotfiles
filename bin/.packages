@@ -11,9 +11,9 @@ fi
 echo "Performing global apt-get update & upgrade..."
 (apt-get update && apt-get upgrade) > /dev/null 2>&1
 
-packs=( build-essential linux-libc-dev brightside gnome-screenshot chromium-browser
-	dos2unix fluxgui git git-core bash-completion nodejs npm php retext ruby
-	terminator sublime-text flash-installer parcellite
+packs=( build-essential linux-libc-dev brightside chromium-browser
+	dos2unix git git-core bash-completion nodejs npm php retext ruby
+	sublime-text flash-installer parcellite ulauncher
 );
 
 echo -e "Installing new packages..."

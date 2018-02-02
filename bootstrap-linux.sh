@@ -53,12 +53,13 @@ if [ -f ~/.bash-git-prompt ]; then
 fi
 
 echo -e "Linking home files..."
-ln -s "$DIR/home/.bash_profile.LINUX" ~/.bashrc
-ln -s "$DIR/home/.aliases.LINUX" ~/.aliases.LINUX
-ln -s "$DIR/home/.functions" ~/.functions
-ln -s "$DIR/home/.inputrc" ~/.inputrc
-ln -s "$DIR/home/.gitconfig" ~/.gitconfig
-ln -s "$DIR/home/.gitprompt" ~/.gitprompt
+user=`who | awk '{print $1}'`
+sudo -u $user ln -s "$DIR/home/.bash_profile.LINUX" ~/.bashrc
+sudo -u $user ln -s "$DIR/home/.aliases.LINUX" ~/.bash_aliases
+sudo -u $user ln -s "$DIR/home/.functions" ~/.bash_functions
+sudo -u $user ln -s "$DIR/home/.inputrc" ~/.inputrc
+sudo -u $user ln -s "$DIR/home/.gitconfig" ~/.gitconfig
+sudo -u $user ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 
 source ~/.bashrc
 

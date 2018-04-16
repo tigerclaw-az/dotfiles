@@ -1,3 +1,15 @@
+[user]
+	useConfigOnly = true
+
+[includeIf "gitdir:~/dotfiles/"]
+	path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/github-repos/"]
+	path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/git-repos/"]
+	path = ~/.gitconfig-work
+
 [core]
 	autocrlf = false
 	editor = subl -n -w

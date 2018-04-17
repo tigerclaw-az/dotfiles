@@ -17,6 +17,7 @@ brew "wget", args: ["with-iri"]
 
 # Install other useful binaries
 brew "ack"
+brew "apache2"
 brew "atk"
 brew "autoconf"
 brew "automake"
@@ -54,7 +55,8 @@ brew "lynx"
 brew "macvim", args: ["env-std", "with-override-system-vim"]
 brew "makedepend"
 brew "maven"
-brew "nvm"
+brew "mongodb"
+brew "mysql"
 brew "openssl"
 brew "pango"
 brew "pigz"

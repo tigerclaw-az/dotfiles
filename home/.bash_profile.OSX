@@ -31,7 +31,7 @@
 	export PYTHON_HOME="${prefix}/python"
 	export PYTHON3_HOME="${prefix}/python3"
 	export MYSQL_HOME="${prefix}/mysql"
-	export PATH="$HOME/bin:$PYTHON_HOME/bin:$MYSQL_HOME/bin:${coreutils}/bin:/usr/local/opt/node@6/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$HOME/bin:$PYTHON3_HOME/bin:$MYSQL_HOME/bin:${coreutils}/bin:$COMPOSER_BIN_DIR:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------

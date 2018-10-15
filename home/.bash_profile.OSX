@@ -42,7 +42,7 @@
 
 # 	Set Default Editor
 # 	------------------------------------------------------------
-	export EDITOR='subl -w'
+	export EDITOR='code --wait'
 
 # 	Set terminal colors
 # 	------------------------------------------------------------

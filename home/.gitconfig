@@ -1,14 +1,18 @@
-
 [includeIf "gitdir:~/git-repos/persona/"]
 	path = ~/.gitconfig-persona
 
 [includeIf "gitdir:~/git-repos/ejwaibel/"]
 	path = ~/.gitconfig-ejwaibel
 
+[includeIf "gitdir:~/dotfiles/"]
+	path = ~/.gitconfig-ejwaibel
+
+[user]
+	useConfigOnly = true
+
 [core]
 	autocrlf = false
 	editor = code --wait
-	excludesfile = /Users/bztv56/.gitignore_global
 
 [color]
 	diff = auto
@@ -53,10 +57,6 @@
 	keepBackup = false
 	prompt = false
 
-[mergetool "meld"]
-	trustExitCode = true
-	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output \"$PWD/$MERGED\"
-
 [branch]
 	autosetupmerge = true
 
@@ -88,8 +88,6 @@
 	supdate = submodule update --remote --merge
 	sf = submodule foreach
 	release = !sh ./bin/git-release $1
-[hooks]
-	global = /Users/bztv56/git-repos/git-hooks/hooks
 [credential]
 	helper = osxkeychain
 [merge "ours"]

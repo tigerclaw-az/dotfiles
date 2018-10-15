@@ -33,8 +33,6 @@
 	export MYSQL_HOME="${prefix}/mysql"
 	export PATH="$HOME/bin:$PYTHON_HOME/bin:$MYSQL_HOME/bin:${coreutils}/bin:/usr/local/opt/node@6/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
-	source ~/git-repos/tools/tools_bashrc
-
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -75,5 +73,3 @@
 	source ~/.aliases.OSX
 	source ~/.functions
 	source ~/.work-aliases
-
-	setjdk 1.8

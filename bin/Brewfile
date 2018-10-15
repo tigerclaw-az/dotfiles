@@ -1,91 +1,91 @@
-
 # Tap versions for Casks
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'phinze/cask'
+tap "caskroom/cask"
+tap "caskroom/versions"
+tap "phinze/cask"
 
 # Install more recent versions of some OS X tools
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
-tap 'homebrew/x11'
+# TODO
 
 # Install GNU core utilities (those that come with OS X are outdated)
-brew 'coreutils'
+brew "coreutils"
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew 'findutils'
+brew "findutils"
 
 # Install wget with IRI support
-brew 'wget', args: ['with-iri']
+brew "wget", args: ["with-iri"]
 
 # Install other useful binaries
-brew 'ack'
-brew 'atk'
-brew 'autoconf'
-brew 'automake'
-brew 'bash'
-brew 'bash-git-prompt'
-brew 'cairo'
-brew 'curl'
-brew 'dos2unix'
-brew 'emacs'
-brew 'fontconfig'
-brew 'freetype'
-brew 'gdbm'
-brew 'gdk-pixbuf'
-brew 'gettext'
-brew 'git-extras'
-brew 'glib'
-brew 'gobject-introspection'
-brew 'gsettings-desktop-schemas'
-brew 'gtk+3'
-brew 'gtk-mac-integration'
-brew 'gtksourceview'
-brew 'harfbuzz'
-brew 'icu4c'
-brew 'imagemagick'
-brew 'intltool'
-brew 'jpeg'
-brew 'libepoxy'
-brew 'libffi'
-brew 'libidn'
-brew 'libpng'
-brew 'libtiff'
-brew 'libtool'
-brew 'libyaml'
-brew 'lynx'
-brew 'macvim', args: ['env-std', 'with-override-system-vim']
-brew 'makedepend'
-brew 'maven'
-brew 'node5'
-brew 'openssl'
-brew 'pango'
-brew 'pigz'
-brew 'pkg-config'
-brew 'pygtksourceview'
-brew 'python'
-brew 'python3'
-brew 'readline'
-brew 'rename'
-brew 'ruby'
-brew 'sqlite'
-brew 'terminal-notifier'
-brew 'tree'
-brew 'webkit2png'
-brew 'zopfli'
+brew "ack"
+brew "apache2"
+brew "atk"
+brew "autoconf"
+brew "automake"
+brew "bash"
+brew "bash-git-prompt"
+brew "cairo"
+brew "curl"
+brew "dos2unix"
+brew "emacs"
+brew "fontconfig"
+brew "freetype"
+brew "gdbm"
+brew "gdk-pixbuf"
+brew "gettext"
+brew "git-extras"
+brew "glib"
+brew "gobject-introspection"
+brew "gsettings-desktop-schemas"
+brew "gtk+3"
+brew "gtk-mac-integration"
+brew "gtksourceview"
+brew "harfbuzz"
+brew "icu4c"
+brew "imagemagick"
+brew "intltool"
+brew "jpeg"
+brew "libepoxy"
+brew "libffi"
+brew "libidn"
+brew "libpng"
+brew "libtiff"
+brew "libtool"
+brew "libyaml"
+brew "lynx"
+brew "macvim", args: ["env-std", "with-override-system-vim"]
+brew "makedepend"
+brew "maven"
+brew "mongodb"
+brew "mysql"
+brew "openssl"
+brew "pango"
+brew "pigz"
+brew "pkg-config"
+brew "pygtksourceview"
+brew "python"
+brew "python3"
+brew "readline"
+brew "rename"
+brew "ruby"
+brew "sqlite"
+brew "terminal-notifier"
+brew "tree"
+brew "webkit2png"
+brew "zopfli"
 
 # Install PHP versions
-tap 'homebrew/php'
-brew 'homebrew/dupes/grep'
-brew 'php56'
-
-# Install Cask
-brew 'caskroom/cask/brew-cask'
-brew 'cask'
+brew "php"
 
 # Install Cask applications
-cask 'caffeine'
-cask 'flux'
-cask 'macdown'
-cask 'iterm2'
-cast 'bitbar'
+cask_args appdir: "/Applications"
+
+cask "bitbar"
+cask "caffeine"
+cask "dash"
+cask "evernote"
+cask "firefox"
+cask "flux"
+cask "google-chrome"
+cask "macdown"
+cask "meld"
+cask "iterm2"

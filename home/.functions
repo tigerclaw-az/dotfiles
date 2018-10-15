@@ -3,9 +3,26 @@
 # File: ~/.functions
 # Author: Erik J. Waibel
 # Description: This file contains some useful bash functions.
-# Last Modified: 06/09/2016
+# Last Modified: 04/18/2018
 #
 #=================================================================
+
+# Hopefully this fixes bluetooth issues on MacOS Sierra
+function blueplease() {
+    sudo killall coreaudiod
+    sudo killall blued
+    #sudo renice -5 (pid bluetoothaudio)
+    #sudo renice -5 (pid iTunes)
+    defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+    defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
+    defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
+    defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+    defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
+    defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
+    defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
+    #sudo renice -5 (pid coreaudiod)
+    #sudo renice -5 (pid blued)
+}
 
 # Use the 'nohup' command to send commands to background
 nhdn () {
@@ -42,7 +59,7 @@ fixlines () { /usr/bin/perl -pi~ -e 's/\r\n?/\n/g' "$@" ; }
 
 # edit: edit a file located in User's home directory and source after closing
 function edit() {
-	vi ~/$1
+	code ~/$1
 	source ~/$1
 }
 

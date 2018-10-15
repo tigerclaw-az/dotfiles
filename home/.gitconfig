@@ -1,6 +1,13 @@
+
+[includeIf "gitdir:~/git-repos/persona/"]
+	path = ~/.gitconfig-persona
+
+[includeIf "gitdir:~/git-repos/ejwaibel/"]
+	path = ~/.gitconfig-ejwaibel
+
 [core]
 	autocrlf = false
-	editor = subl -n -w
+	editor = code --wait
 	excludesfile = /Users/bztv56/.gitignore_global
 
 [color]
@@ -80,6 +87,7 @@
 	spull = pull --recurse-submodules
 	supdate = submodule update --remote --merge
 	sf = submodule foreach
+	release = !sh ./bin/git-release $1
 [hooks]
 	global = /Users/bztv56/git-repos/git-hooks/hooks
 [credential]

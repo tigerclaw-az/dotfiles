@@ -31,7 +31,8 @@
 	export PYTHON_HOME="${prefix}/python"
 	export PYTHON3_HOME="${prefix}/python3"
 	export MYSQL_HOME="${prefix}/mysql"
-	export PATH="$HOME/bin:$PYTHON_HOME/bin:$MYSQL_HOME/bin:${coreutils}/bin:/usr/local/opt/node@6/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+	export PATH="$HOME/bin:$PYTHON3_HOME/bin:$MYSQL_HOME/bin:${coreutils}/bin:$COMPOSER_BIN_DIR:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+	export GPG_TTY=$(tty)
 
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------
@@ -41,7 +42,7 @@
 
 # 	Set Default Editor
 # 	------------------------------------------------------------
-	export EDITOR='subl -w'
+	export EDITOR='code --wait'
 
 # 	Set terminal colors
 # 	------------------------------------------------------------
@@ -73,3 +74,6 @@
 	source ~/.aliases.OSX
 	source ~/.functions
 	source ~/.work-aliases
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

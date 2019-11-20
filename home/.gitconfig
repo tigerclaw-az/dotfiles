@@ -1,15 +1,15 @@
-[includeIf "gitdir:~/git-repos/persona/"]
-	path = ~/.gitconfig-persona
+[includeIf "gitdir:~/git-repos/ejwaibel-github/"]
+	path = ~/.gitconfig-ejwaibel_github
 
-[includeIf "gitdir:~/git-repos/ejwaibel/"]
-	path = ~/.gitconfig-ejwaibel
+[includeIf "gitdir:~/git-repos/ejwaibel-gitlab/"]
+	path = ~/.gitconfig-ejwaibel_gitlab
 
 [includeIf "gitdir:~/dotfiles/"]
-	path = ~/.gitconfig-ejwaibel
+	path = ~/.gitconfig-ejwaibel_github
 
 [user]
 	useConfigOnly = true
-
+	
 [core]
 	autocrlf = false
 	editor = code --wait

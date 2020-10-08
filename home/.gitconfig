@@ -1,15 +1,15 @@
 [includeIf "gitdir:~/git-repos/ejwaibel-github/"]
 	path = ~/.gitconfig-ejwaibel_github
 
-[includeIf "gitdir:~/git-repos/ejwaibel-gitlab/"]
-	path = ~/.gitconfig-ejwaibel_gitlab
+[includeIf "gitdir:~/git-repos/raider/"]
+	path = ~/.gitconfig-ejwaibel_rockwell
 
 [includeIf "gitdir:~/dotfiles/"]
 	path = ~/.gitconfig-ejwaibel_github
 
 [user]
 	useConfigOnly = true
-	
+
 [core]
 	autocrlf = false
 	editor = code --wait
@@ -50,13 +50,6 @@
 	trustExitCode = true
 	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
 
-[merge]
-	tool = meld
-
-[mergetool]
-	keepBackup = false
-	prompt = false
-
 [branch]
 	autosetupmerge = true
 
@@ -92,3 +85,5 @@
 	helper = osxkeychain
 [merge "ours"]
 	driver = true
+[pull]
+	rebase = false

@@ -55,9 +55,6 @@ sudo systemsetup -setrestartfreeze on
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
@@ -78,19 +75,21 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# # Map bottom right Trackpad corner to right-click
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# Map bottom right Trackpad corner to right-click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFiveFingerPinchGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerHorizSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerPinchGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80 
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 40 
-defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 40 
-#defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80 
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 40 
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80 
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 40
+defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 40
+#defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 40
+defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 40
 defaults write com.apple.BluetoothAudioAgent "Stream - Flush Ring on Packet Drop (editable)" 0
 defaults write com.apple.BluetoothAudioAgent "Stream - Max Outstanding Packets (editable)" 15
@@ -161,7 +160,7 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Animate opening applications from the Dock
-defaults write com.apple.dock launchanim -bool true 
+defaults write com.apple.dock launchanim -bool true
 
 # Remove the auto-hiding Dock delay
 defaults write com.apple.Dock autohide-delay -float 0
@@ -170,7 +169,7 @@ defaults write com.apple.Dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.25
 
 # Enable the 3D Dock
-defaults write com.apple.dock no-glass -bool false 
+defaults write com.apple.dock no-glass -bool false
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true

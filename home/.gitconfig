@@ -9,6 +9,8 @@
 
 [user]
 	useConfigOnly = true
+	email = ejwaibel@gmail.com
+	name = Erik Waibel
 
 [core]
 	autocrlf = false

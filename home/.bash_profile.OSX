@@ -28,11 +28,15 @@
 	export GIT_PATH="${prefix}/git/bin"
 	export GIT_CORE_PATH="$GIT_PATH/../libexec/git-core"
 	export GIT_MERGE_AUTOEDIT="false"
-	export PYTHON_HOME="${prefix}/python3"
 	export CURL_HOME="${prefix}/curl"
 	export CURLOPENSSL_HOME="${prefix}/curl-openssl"
-	export PATH="$HOME/bin:$PYTHON_HOME/bin:${coreutils}/bin:${CURLOPENSSL_HOME}/bin:${CURL_HOME}/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+  export COMPOSER_BIN="${HOME}/.composer/vendor/bin"
+	export PATH="$HOME/bin:${HOME}/.pyenv/shims:${coreutils}/bin:${CURLOPENSSL_HOME}/bin:${CURL_HOME}/bin:${COMPOSER_BIN}:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 	export GPG_TTY=$(tty)
+
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+  fi
 
 #	Homebrew Casks installation folder
 # 	------------------------------------------------------------
@@ -78,6 +82,3 @@
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi

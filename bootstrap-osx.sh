@@ -42,6 +42,7 @@ ln -s "$DIR/home/.bash_profile.OSX" ~/.bash_profile
 ln -s "$DIR/home/.aliases.OSX" ~/.aliases.OSX
 ln -s ~/.bash_profile ~/.profile
 ln -s ~/.bash_profile ~/.bashrc
+ln -s "$DIR/home/.zshrc" ~/.zshrc
 ln -s "$DIR/home/.aliases" ~/.aliases
 ln -s "$DIR/home/.functions" ~/.functions
 ln -s "$DIR/home/.inputrc" ~/.inputrc
@@ -50,3 +51,20 @@ ln -s "$DIR/home/.gitprompt" ~/.gitprompt
 
 source ~/.bash_profile
 
+######
+# Additional software/command tools
+######
+
+# Rust #
+which -s rustup
+if [[ $? != 0 ]]; then
+	echo "Installing Rust..."
+	curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+fi
+
+# Oh My Zsh #
+which -s zsh
+if [[ $? != 0 ]]; then
+	echo "Installing Oh My Zsh..."
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi

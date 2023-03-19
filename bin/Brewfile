@@ -35,7 +35,6 @@ brew "rename"
 brew "ruby"
 brew "terminal-notifier"
 brew "tree"
-cask "alfred"
 cask "bitbar", args: { appdir: "/Applications" }
 cask "dash", args: { appdir: "/Applications" }
 cask "docker"
@@ -43,4 +42,3 @@ cask "flux", args: { appdir: "/Applications" }
 cask "google-chrome-canary"
 cask "iterm2", args: { appdir: "/Applications" }
 cask "wkhtmltopdf"
-cask "xquartz"

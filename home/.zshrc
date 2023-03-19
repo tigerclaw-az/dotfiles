@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 
 #	Brew prefix (if applicable)
 # ------------------------------------------------------------
-prefix="/usr/local/opt"
+prefix="/opt/homebrew/opt"
 coreutils="${prefix}/coreutils"
 
 if [[ "$prefix" != "" ]]; then
@@ -105,7 +105,7 @@ export GIT_MERGE_AUTOEDIT="false"
 export CURL_HOME="${prefix}/curl"
 export CURLOPENSSL_HOME="${prefix}/curl-openssl"
 export COMPOSER_BIN="${HOME}/.composer/vendor/bin"
-export PATH="$HOME/bin:${HOME}/.pyenv/shims:${coreutils}/bin:${CURLOPENSSL_HOME}/bin:${CURL_HOME}/bin:${COMPOSER_BIN}:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+export PATH="$HOME/bin:${HOME}/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:${coreutils}/bin:${CURLOPENSSL_HOME}/bin:${CURL_HOME}/bin:${COMPOSER_BIN}:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 export GPG_TTY=$(tty)
 
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -135,8 +135,7 @@ source $HOME/.functions
 
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+    [ -s "${prefix}/nvm/nvm.sh" ] && . "${prefix}/nvm/nvm.sh"  # This loads nvm
 fi
 
 # Compilation flags

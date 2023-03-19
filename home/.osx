@@ -4,7 +4,7 @@
 #############################################################
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+# sudo nvram SystemAudioVolume=" "
 
 # Disable menu bar transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
@@ -62,7 +62,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+# defaults write NSGlobalDomain KeyRepeat -int 0
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -83,20 +83,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFi
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 40
-defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 40
-#defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 40
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
-defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 40
-defaults write com.apple.BluetoothAudioAgent "Stream - Flush Ring on Packet Drop (editable)" 0
-defaults write com.apple.BluetoothAudioAgent "Stream - Max Outstanding Packets (editable)" 15
-
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# defaults write com.apple.screensaver askForPassword -int 1
+# defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
@@ -117,9 +106,9 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Disable disk image verification
-defaults write com.apple.frameworks.diskimages skip-verify -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
-defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true
+# defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
@@ -176,9 +165,6 @@ defaults write com.apple.dock autohide -bool true
 
 # # Make Dock icons of hidden applications translucent
 defaults write com.apple.dock showhidden -bool true
-
-# Enable iTunes track notifications in the Dock
-defaults write com.apple.dock itunes-notifications -bool true
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true

@@ -135,7 +135,7 @@ source $HOME/.functions
 
 if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
-    [ -s "${prefix}/nvm/nvm.sh" ] && . "${prefix}/nvm/nvm.sh"  # This loads nvm
+	source $(brew --prefix nvm)/nvm.sh
 fi
 
 # Compilation flags

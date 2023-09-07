@@ -59,6 +59,10 @@
 		. "/usr/local/share/gitprompt.sh"
 	fi
 
+	if command -v wp 1>/dev/null 2>&1; then
+		source "${HOME}/bin/wp-completion.bash"
+	fi
+
 # 	iTerm2 Shell Integration
 # 	-------------------------------
 	if [ -f "${HOME}/.iterm2_shell_integration.bash" ]; then
@@ -72,5 +76,5 @@
 	source ~/.aliases.OSX
 	source ~/.functions
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "${prefix}/nvm/nvm.sh" ] && . "${prefix}/nvm/nvm.sh"  # This loads nvm
+	export NVM_DIR=~/.nvm
+	source $(brew --prefix nvm)/nvm.sh
